@@ -57,7 +57,8 @@ class RESTClientObject(object):
             # if not set certificate file, use Mozilla's root certificates.
             ca_certs = certifi.where()
 
-        ssl_context = ssl.create_default_context(cafile=ca_certs)
+        #ssl_context = ssl.create_default_context(cafile=ca_certs)
+        ssl_context = ssl._create_unverified_context()
         if configuration.cert_file:
             ssl_context.load_cert_chain(
                 configuration.cert_file, keyfile=configuration.key_file
