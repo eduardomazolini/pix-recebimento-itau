@@ -1,4 +1,5 @@
 # coding: utf-8
+import cchardet as chardet
 
 """
     pix_recebimentos
@@ -162,7 +163,11 @@ class RESTClientObject(object):
                 raise ApiException(status=0, reason=msg)
 
         async with self.pool_manager.request(**args) as r:
-            data = await r.text()
+            try:
+                data = await r.text()
+            except:
+                databytes = await r.read()
+                data = databytes.decode(chardet.detect(databytes)['encoding'])
             r = RESTResponse(r, data)
 
         # log response body
