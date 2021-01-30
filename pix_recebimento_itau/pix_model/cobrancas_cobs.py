@@ -251,7 +251,8 @@ class CobrancasCobs(object):
         :type: str
         """
         if location is None:
-            raise ValueError("Invalid value for `location`, must not be `None`")  # noqa: E501
+            print("Invalid value for `location`, must not be `None`")  # noqa: E501
+            #raise ValueError("Invalid value for `location`, must not be `None`")  # noqa: E501
 
         self._location = location
 
