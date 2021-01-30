@@ -16,7 +16,7 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
-from pix_recebimento.default_api import DefaultApi
+from pix_recebimento_itau.pix_recebimento.default_api import DefaultApi
 
 # import ApiClient
 from pix_recebimento_itau.api_client import ApiClient
