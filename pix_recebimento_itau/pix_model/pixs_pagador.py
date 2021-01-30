@@ -45,14 +45,16 @@ class PixsPagador(object):
     def __init__(self, cpf=None, nome=None, cnpj=None):  # noqa: E501
         """PixsPagador - a model defined in Swagger"""  # noqa: E501
 
-        self._cpf = None
         self._nome = None
+        self._cpf = None
         self._cnpj = None
         self.discriminator = None
 
-        self.cpf = cpf
         self.nome = nome
-        self.cnpj = cnpj
+        if cpf:
+            self.cpf = cpf
+        else:
+            self.cnpj = cnpj
 
     @property
     def cpf(self):
